@@ -24,7 +24,7 @@ requirements:
     - make
   host:
     - libxml2
-    - libzlib
+    - zlib
     - libcurl
     - openssl
 
