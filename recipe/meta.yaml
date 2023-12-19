@@ -1,5 +1,5 @@
 {% set name = "xmlrpc-c" %}
-{% set version = "1.51.07" %}
+{% set version = "1.54.06" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
     -  fix-cpp11.patch
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
