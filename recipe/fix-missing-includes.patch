@@ -1,0 +1,20 @@
+--- a/include/xmlrpc-c/string_int.h	2019-03-29 13:33:33
++++ b/include/xmlrpc-c/string_int.h	2023-12-19 20:46:54
+@@ -4,6 +4,7 @@
+ 
+ #include <stdarg.h>
+ #include <string.h>
++#include <strings.h>
+ 
+ #include "xmlrpc_config.h"
+ #include "xmlrpc-c/c_util.h"
+--- a/lib/abyss/src/server.c	2023-12-19 21:05:04
++++ b/lib/abyss/src/server.c	2023-12-19 21:05:22
+@@ -8,6 +8,7 @@
+ #include <assert.h>
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <sys/param.h>
+ #if MSVCRT
+   #include <process.h>
+ #else
