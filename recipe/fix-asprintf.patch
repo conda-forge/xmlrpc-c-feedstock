@@ -1,0 +1,36 @@
+--- a/lib/util/casprintf.c	2015-12-30 14:22:14
++++ b/lib/util/casprintf.c	2023-12-19 13:15:34
+@@ -107,11 +107,11 @@
+     char * string;
+     int rc;
+ 
+-#if HAVE_ASPRINTF
+-    rc = vasprintf(&string, fmt, varargs);
+-#else
++//#if HAVE_ASPRINTF
++//    rc = vasprintf(&string, fmt, varargs);
++//#else
+     rc = simpleVasprintf(&string, fmt, varargs);
+-#endif
++//#endif
+ 
+     if (rc < 0)
+         *retvalP = strsol;
+--- a/lib/libutil/asprintf.c	2015-12-30 14:22:14
++++ b/lib/libutil/asprintf.c	2023-12-19 13:15:20
+@@ -128,11 +128,11 @@
+     char * string;
+     int rc;
+ 
+-#if HAVE_ASPRINTF
+-    rc = vasprintf(&string, fmt, varargs);
+-#else
++//#if HAVE_ASPRINTF
++//    rc = vasprintf(&string, fmt, varargs);
++//#else
+     rc = simpleVasprintf(&string, fmt, varargs);
+-#endif
++//#endif
+ 
+     if (rc < 0)
+         *retvalP = xmlrpc_strsol;
