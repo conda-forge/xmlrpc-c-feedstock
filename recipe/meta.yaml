@@ -26,6 +26,7 @@ requirements:
     - libxml2
     - libcurl
     - openssl
+    - zlib
 
 test:
   commands:
