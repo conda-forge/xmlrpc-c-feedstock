@@ -11,7 +11,7 @@ source:
   patches:
     - fix-cpp11.patch
     - fix-asprintf.patch  # [osx]
-    - fix-strcasecmp.patch  # [osx]
+    - fix-missing-includes.patch  # [osx]
 
 build:
   number: 0
