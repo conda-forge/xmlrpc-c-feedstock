@@ -1,18 +1,21 @@
 {% set name = "xmlrpc-c" %}
-{% set version = "1.51.07" %}
+{% set version = "1.54.06" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://sourceforge.net/projects/{{ name }}/files/Xmlrpc-c%20Super%20Stable/1.51.07/{{ name }}-{{ version }}.tgz
-  sha256: 84d20ae33f927582f821d61c0b9194aefbf1d7924590a13fa9da5ae1698aded9
+  url: https://sourceforge.net/projects/{{ name }}/files/Xmlrpc-c%20Super%20Stable/{{ version }}/{{ name }}-{{ version }}.tgz
+  sha256: ae6d0fb58f38f1536511360dc0081d3876c1f209d9eaa54357e2bacd690a5640
   patches:
-    -  fix-cpp11.patch
+    - fix-cpp11.patch
+    - fix-dumpvalue.patch
+    - fix-asprintf.patch  # [osx]
+    - fix-missing-includes.patch  # [osx]
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -22,10 +25,16 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - make
+    - autoconf
+    - pkg-config
   host:
     - libxml2
     - libcurl
     - openssl
+    - zlib
+    - readline
+  run:
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 
 test:
   commands:

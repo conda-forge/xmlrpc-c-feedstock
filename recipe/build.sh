@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export CXXFLAGS="${CXXFLAGS} -std=c++14"
+
 ./configure \
     --prefix="${PREFIX}"  \
     --enable-libxml2-backend
