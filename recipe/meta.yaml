@@ -10,6 +10,7 @@ source:
   sha256: ae6d0fb58f38f1536511360dc0081d3876c1f209d9eaa54357e2bacd690a5640
   patches:
     - fix-cpp11.patch
+    - fix-dumpvalue.patch
     - fix-asprintf.patch  # [osx]
     - fix-missing-includes.patch  # [osx]
 
