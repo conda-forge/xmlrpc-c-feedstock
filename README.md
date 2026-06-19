@@ -14,14 +14,13 @@ Current build status
 
 
 <table>
-    
   <tr>
-    <td>Azure</td>
+    <td>GitHub Actions</td>
     <td>
       <details>
         <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13015&branchName=main">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xmlrpc-c-feedstock?branchName=main">
+          <a href="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml">
+            <img src="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main" alt="GitHub Actions build status">
           </a>
         </summary>
         <table>
@@ -29,15 +28,22 @@ Current build status
           <tbody><tr>
               <td>linux_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13015&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xmlrpc-c-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                <a href="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml?query=branch%3Amain">
+                  <img src="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main" alt="linux_64">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64</td>
+              <td>
+                <a href="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml?query=branch%3Amain">
+                  <img src="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main" alt="linux_aarch64">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13015&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xmlrpc-c-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                <a href="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml?query=branch%3Amain">
+                  <img src="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main" alt="osx_64">
                 </a>
               </td>
             </tr>
@@ -124,12 +130,12 @@ it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -156,7 +162,7 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `conda-forge` channel.
 Note that all branches in the conda-forge/xmlrpc-c-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
@@ -170,4 +176,3 @@ Feedstock Maintainers
 =====================
 
 * [@Tobias-Fischer](https://github.com/Tobias-Fischer/)
-

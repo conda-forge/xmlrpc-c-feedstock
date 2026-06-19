@@ -1,0 +1,4 @@
+01-fix-cpp11.patch
+02-fix-dumpvalue.patch
+03-fix-asprintf.patch
+04-fix-missing-includes.patch

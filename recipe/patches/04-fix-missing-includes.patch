@@ -1,0 +1,32 @@
+---
+ include/xmlrpc-c/string_int.h |    5 +++++
+ lib/abyss/src/server.c        |    1 +
+ 2 files changed, 6 insertions(+)
+
+diff --git a/include/xmlrpc-c/string_int.h b/include/xmlrpc-c/string_int.h
+index 8d27f66..956cbce 100644
+--- a/include/xmlrpc-c/string_int.h
++++ b/include/xmlrpc-c/string_int.h
+@@ -7,6 +7,11 @@
+ #include <string.h>
+ 
+ #include "xmlrpc_config.h"
++
++#if HAVE_STRCASECMP
++#include <strings.h>
++#endif
++
+ #include "xmlrpc-c/c_util.h"
+ #include "bool.h"
+ 
+diff --git a/lib/abyss/src/server.c b/lib/abyss/src/server.c
+index 13dbdf0..ef24ae8 100644
+--- a/lib/abyss/src/server.c
++++ b/lib/abyss/src/server.c
+@@ -1,5 +1,6 @@
+ /* Copyright information is at end of file */
+ 
++#define _DARWIN_C_SOURCE  /* Make sure setgroups() is in <grp.h> */
+ #define _XOPEN_SOURCE 600  /* Make sure strdup() is in <string.h> */
+ #define _BSD_SOURCE  /* Make sure setgroups()is in <grp.h> */
+ 

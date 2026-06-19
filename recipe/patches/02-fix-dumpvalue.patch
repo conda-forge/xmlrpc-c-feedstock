@@ -1,0 +1,20 @@
+---
+ tools/Makefile |    5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/tools/Makefile b/tools/Makefile
+index 7cd2e5f..a5fa23e 100644
+--- a/tools/Makefile
++++ b/tools/Makefile
+@@ -33,6 +33,11 @@ endif
+ 
+ all: $(SUBDIRS:%=%/all)
+ 
++# These tools link tools/lib/dumpvalue.o, so they must not run before or
++# concurrently with the tools/lib sub-build.
++xml/all xmlrpc/all xmlrpc_dumpserver/all xmlrpc_pstream/all: lib/all
++
++
+ clean: $(SUBDIRS:%=%/clean)
+ 
+ distclean: $(SUBDIRS:%=%/distclean)

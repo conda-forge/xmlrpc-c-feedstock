@@ -1,0 +1,92 @@
+schema_version: 1
+
+context:
+  name: xmlrpc-c
+  version: "1.54.06"
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://sourceforge.net/projects/${{ name }}/files/Xmlrpc-c%20Super%20Stable/${{ version }}/${{ name }}-${{ version }}.tgz
+  sha256: ae6d0fb58f38f1536511360dc0081d3876c1f209d9eaa54357e2bacd690a5640
+  patches:
+    - patches/01-fix-cpp11.patch
+    - patches/02-fix-dumpvalue.patch
+    - patches/03-fix-asprintf.patch
+    - patches/04-fix-missing-includes.patch
+
+build:
+  number: 1
+  skip:
+    - win
+  script: |
+    export CXXFLAGS="${CXXFLAGS} -std=c++14"
+
+    cp "${BUILD_PREFIX}/share/gnuconfig/config.guess" config.guess
+    cp "${BUILD_PREFIX}/share/gnuconfig/config.sub" config.sub
+
+    ./configure \
+      --build="${BUILD}" \
+      --host="${HOST}" \
+      --prefix="${PREFIX}" \
+      --enable-libxml2-backend
+
+    make -j${CPU_COUNT}
+    make install
+    make -C tools install
+
+    make check
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+    - make
+    - gnuconfig
+    - pkg-config
+    - if: osx
+      then: libcxx-devel ${{ cxx_compiler_version }}.*
+  host:
+    - libxml2-devel
+    - liblzma-devel
+    - libcurl
+    - openssl
+    - zlib
+    - readline
+  ignore_run_exports:
+    from_package:
+      - liblzma-devel
+      - zlib
+  run:
+    - libxml2-devel
+  run_exports:
+    - ${{ pin_subpackage(name, upper_bound='x.x') }}
+
+tests:
+  - script:
+      - test -f ${PREFIX}/lib/libxmlrpc${SHLIB_EXT}
+      - test -f ${PREFIX}/lib/libxmlrpc++${SHLIB_EXT}
+      - test -f ${PREFIX}/lib/libxmlrpc_server${SHLIB_EXT}
+      - test -f ${PREFIX}/lib/libxmlrpc_server++${SHLIB_EXT}
+      - test -f ${PREFIX}/lib/libxmlrpc_client${SHLIB_EXT}
+      - test -f ${PREFIX}/lib/libxmlrpc_client++${SHLIB_EXT}
+      - test -f ${PREFIX}/lib/pkgconfig/xmlrpc.pc
+      - test -f ${PREFIX}/lib/pkgconfig/xmlrpc++.pc
+      - test -f ${PREFIX}/include/xmlrpc.h
+      - test -f ${PREFIX}/include/xmlrpc_client.h
+      - test -f ${PREFIX}/include/xmlrpc_server.h
+      - xmlrpc-c-config --version
+      - xmlrpc-c-config c++2 pstream-server client --libs
+
+about:
+  homepage: http://xmlrpc-c.sourceforge.net/
+  license: BSD-3-Clause
+  license_file: doc/COPYING
+  summary: A lightweight RPC library based on XML and HTTP.
+
+extra:
+  recipe-maintainers:
+    - Tobias-Fischer
