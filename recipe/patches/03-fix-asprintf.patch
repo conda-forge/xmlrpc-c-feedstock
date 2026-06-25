@@ -1,0 +1,23 @@
+---
+ lib/libutil/asprintf.c |    1 +
+ lib/util/casprintf.c   |    1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/lib/libutil/asprintf.c b/lib/libutil/asprintf.c
+index d79e1ba..291a82a 100644
+--- a/lib/libutil/asprintf.c
++++ b/lib/libutil/asprintf.c
+@@ -1,3 +1,4 @@
++#define _DARWIN_C_SOURCE  /* Expose vasprintf() on macOS with _XOPEN_SOURCE */
+ #define _XOPEN_SOURCE 600  /* Make sure strdup() is in <string.h> */
+ #define _GNU_SOURCE  /* But only when HAVE_ASPRINTF */
+ #include <stdarg.h>
+diff --git a/lib/util/casprintf.c b/lib/util/casprintf.c
+index 5953f16..2b2bc8d 100644
+--- a/lib/util/casprintf.c
++++ b/lib/util/casprintf.c
+@@ -1,3 +1,4 @@
++#define _DARWIN_C_SOURCE  /* Expose vasprintf() on macOS */
+ #define _GNU_SOURCE   /* But only when HAVE_ASPRINTF */
+ #include <stdarg.h>
+ #include <stdio.h>

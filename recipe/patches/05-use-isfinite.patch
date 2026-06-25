@@ -1,0 +1,17 @@
+---
+ xmlrpc_config.h.in |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/xmlrpc_config.h.in b/xmlrpc_config.h.in
+index 5e45436..ff0a033 100644
+--- a/xmlrpc_config.h.in
++++ b/xmlrpc_config.h.in
+@@ -234,7 +234,7 @@
+ #if MSVCRT
+   #define XMLRPC_FINITE _finite
+ #else
+-  #define XMLRPC_FINITE finite
++  #define XMLRPC_FINITE isfinite
+ #endif
+ 
+ 

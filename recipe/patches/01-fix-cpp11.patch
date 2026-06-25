@@ -1,0 +1,17 @@
+---
+ test/cpp/server_abyss.cpp |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test/cpp/server_abyss.cpp b/test/cpp/server_abyss.cpp
+index c1b4499..14faf5a 100644
+--- a/test/cpp/server_abyss.cpp
++++ b/test/cpp/server_abyss.cpp
+@@ -85,7 +85,7 @@ public:
+         sockAddr.sin_port   = htons(portNumber);
+         sockAddr.sin_addr.s_addr = 0;
+ 
+-        rc = bind(this->fd, (struct sockaddr *)&sockAddr, sizeof(sockAddr));
++        rc = ::bind(this->fd, (struct sockaddr *)&sockAddr, sizeof(sockAddr));
+         
+         if (rc != 0) {
+             closesock(this->fd);
