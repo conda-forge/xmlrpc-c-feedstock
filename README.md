@@ -13,43 +13,12 @@ Current build status
 ====================
 
 
-<table>
-  <tr>
+<table><tr>
     <td>GitHub Actions</td>
     <td>
-      <details>
-        <summary>
-          <a href="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml">
-            <img src="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main" alt="GitHub Actions build status">
-          </a>
-        </summary>
-        <table>
-          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
-          <tbody><tr>
-              <td>linux_64</td>
-              <td>
-                <a href="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml?query=branch%3Amain">
-                  <img src="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main" alt="linux_64">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64</td>
-              <td>
-                <a href="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml?query=branch%3Amain">
-                  <img src="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main" alt="linux_aarch64">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64</td>
-              <td>
-                <a href="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml?query=branch%3Amain">
-                  <img src="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main" alt="osx_64">
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
+      <a href="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/xmlrpc-c-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
     </td>
   </tr>
 </table>
@@ -176,3 +145,4 @@ Feedstock Maintainers
 =====================
 
 * [@Tobias-Fischer](https://github.com/Tobias-Fischer/)
+

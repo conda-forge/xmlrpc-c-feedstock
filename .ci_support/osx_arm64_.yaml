@@ -1,3 +1,5 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
 MACOSX_SDK_VERSION:
 - '11.0'
 c_compiler:
@@ -24,8 +26,6 @@ libxml2_devel:
 - '2.14'
 macos_machine:
 - arm64-apple-darwin20.0.0
-macos_min_version:
-- '11.0'
 openssl:
 - '3.5'
 readline:
